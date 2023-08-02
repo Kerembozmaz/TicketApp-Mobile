@@ -28,6 +28,7 @@ export default function Entre({navigation}) {
           <FontAwesome name='ticket' style={styles.icon2}/>
           <Text style={styles.textbottom}>Aradığın Tüm Filmler Burada</Text>
           </View>
+        
           
       </View>
       
@@ -106,7 +107,8 @@ const styles = StyleSheet.create({
     color:'black',
     fontWeight:'bold',
     
-  }
+  },
+ 
   
  
 });

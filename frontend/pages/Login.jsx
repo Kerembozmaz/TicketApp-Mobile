@@ -1,11 +1,25 @@
 import { View, StyleSheet, Text,TouchableWithoutFeedback,TouchableOpacity, Keyboard,TextInput } from 'react-native'
 import  AntDesign  from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
-import {useState} from 'react'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {useState,useEffect} from 'react'
+import AnimatedText from './components/AnimatedText';
 
 export default function Login({navigation}) {
   const [eye, seteye] = useState('eye');
   const [security, setsecurity] = useState(true);
+  const [toggle, setToggle] = useState(false);
+  const [icon, setIconName] = useState('video-camera');
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setToggle((prevToggle) => !prevToggle);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+  useEffect(() => {
+    setIconName(toggle ? 'ticket' : 'video-camera');
+  }, [toggle]);
   return (
     <TouchableWithoutFeedback  onPress={()=>Keyboard.dismiss()}>
     <View style={styles.container}>
@@ -30,13 +44,19 @@ export default function Login({navigation}) {
       
       
       </View>
+      <TouchableOpacity style={styles.btnSkip}>
+     <AnimatedText text='Devam Et' color='blackß'/> 
+    </TouchableOpacity>
       </View>
             
       
       </View>
         
         
-       
+       <View style={styles.bottomDesign}>
+       <FontAwesome name={icon} style={styles.icon1}/>
+      
+       </View>
       </View>
     </TouchableWithoutFeedback>
    
@@ -80,12 +100,13 @@ const styles = StyleSheet.create({
   btnSkip:{
  
     width:200,
+   
     backgroundColor:'#E7B10A',
     alignItems: 'center',
-    padding:10,
+    padding:15,
     borderRadius:20,
-    top:100,
-    left:110,
+    top:60,
+    left:80,
     height:'auto',
     borderBottomEndRadius:10,
     borderTopLeftRadius:10,
@@ -137,7 +158,24 @@ const styles = StyleSheet.create({
  sss:{
   width:25,
   
- }
+ },
+ bottomDesign:{
+  top:130,
+  width:550,
+  height:300,
+  backgroundColor:'#E7B10A',
+  left:180,
+  borderTopLeftRadius:150,
+  borderTopRightRadius:20
+
+ },
+ icon1:{
+  left:110,
+  top:110,
+  fontSize:60,
+  color:'#2B2730',
+  
+},
 
 
 })

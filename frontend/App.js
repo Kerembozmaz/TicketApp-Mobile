@@ -8,6 +8,7 @@ import Entre from './pages/Entre';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/HomeScreen/Home';
+import Settings from './pages/HomeScreen/Settings';
 const Stack = createStackNavigator();
 const Tabs = createMaterialBottomTabNavigator();
 
@@ -25,7 +26,9 @@ export default function App() {
     options={{headerShown:false  }}/>
     <Stack.Screen name='Home' component={Home} 
     options={{headerShown:false  }}/>
-
+    <Stack.Screen name='Settings' component={Settings}
+    options={{headerShown:false  }}
+    />
   </Stack.Navigator>
       
     </NavigationContainer>

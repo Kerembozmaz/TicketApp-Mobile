@@ -6,6 +6,10 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import AnimatedText from "./components/AnimatedText";
 import Feather from "react-native-vector-icons/Feather"
 export default function Register({navigation}) {
+ const [post, setpost] = useState({
+  name:'',
+  content:''
+ });
   const [security, setsecurity] = useState(true);
   return (
     <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
@@ -24,6 +28,8 @@ export default function Register({navigation}) {
       <TextInput
         style={styles.input}
         placeholder="Kullanıcı Adı "
+        onChangeText={value=>setpost({...post,name:value})}
+       
       />
       <TextInput
         style={styles.input}
@@ -43,6 +49,7 @@ export default function Register({navigation}) {
         placeholder="Şifre Tekrar"
         secureTextEntry={security}
         maxLength={20}
+
       /><TouchableOpacity
       style={styles.sss}
       onPress={() => {
@@ -56,7 +63,9 @@ export default function Register({navigation}) {
     </TouchableOpacity>
       
     </View>
-    <TouchableOpacity style={styles.btnSkip} onPress={()=>{navigation.navigate('Home')}}>
+    <TouchableOpacity style={styles.btnSkip} onPress={()=>navigation.navigate('Home', {
+      isim: post,
+    })}>
       <AnimatedText text="Devam Et" color="black" />
     </TouchableOpacity>
   </View>

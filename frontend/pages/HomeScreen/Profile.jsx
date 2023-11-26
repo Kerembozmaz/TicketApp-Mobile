@@ -9,7 +9,7 @@ import {
 import React from "react";
 import AntDesign from "react-native-vector-icons/AntDesign";
 
-export default function Profile({navigation}) {
+export default function Profile({navigation,route}) {
   return (
     <View style={styles.container}>
       <View style={styles.body}>

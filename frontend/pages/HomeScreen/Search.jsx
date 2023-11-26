@@ -1,15 +1,17 @@
 import { View, Text ,StyleSheet,TextInput,TouchableWithoutFeedback,Keyboard } from 'react-native'
-import React from 'react'
-
-export default function Search() {
+import {React ,useState} from 'react'
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+export default function Search({navigation}) {
+  const [header, setheader] = useState('');
   return (
     <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
     <View style={styles.container}>
         <View style={styles.body}>
             <View style={styles.Search}>
-              <TextInput style={styles.searchBar} placeholder='Filmleri Ara...'/>
+             
+             <TextInput  style={styles.searchBar}  placeholder='Filmleri Ara..' onChangeText={(text)=>setheader(text)} />
             </View>
-
+          <Text>{header}</Text>
           </View>
     </View>
     </TouchableWithoutFeedback>
@@ -26,12 +28,13 @@ const styles = StyleSheet.create({
       searchBar:{
         backgroundColor:'white',
         margin:20,
-        height:40,
+        height:45,
         fontSize:20,
-        padding:10,
+        padding:12,
         borderRadius:12,
         fontWeight:'bold',
-        opacity:0.8
+        opacity:0.6,
+        color:'#2C3333'
       }
 
 })

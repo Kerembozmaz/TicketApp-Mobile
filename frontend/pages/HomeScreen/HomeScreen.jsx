@@ -11,7 +11,10 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.body}>
-        <View style={styles.scrollMenü}>
+        <ScrollView horizontal={true} style={styles.scrollMenü}
+        canCancelContentTouches={true}
+        indicatorStyle={"white"}
+        >
           <TouchableOpacity style={styles.navbarİtem}>
             <Text style={styles.textİtem}>Tümü</Text>
           </TouchableOpacity>
@@ -21,7 +24,23 @@ export default function HomeScreen() {
           <TouchableOpacity style={styles.navbarİtem}>
             <Text style={styles.textİtem}>Korku</Text>
           </TouchableOpacity>
-        </View>
+          <TouchableOpacity style={styles.navbarİtem}>
+            <Text style={styles.textİtem}>Aşk</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.navbarİtem}>
+            <Text style={styles.textİtem}>Gerçek Hayat</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.navbarİtem}>
+            <Text style={styles.textİtem}>Biyografi</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.navbarİtem}>
+            <Text style={styles.textİtem}>Belgesel</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.navbarİtem}>
+          <Text style={styles.textİtem}>fdds</Text>
+        </TouchableOpacity>
+        </ScrollView>
+        
       </View>
     </View>
   );
@@ -36,9 +55,11 @@ const styles = StyleSheet.create({
   },
   scrollMenü: {
     display: "flex",
-    width: 450,
+    width: 500,
     flexDirection: "row",
-    left:20
+    left:10,
+    
+   
   },
   navbarİtem: {
     width: "auto",
